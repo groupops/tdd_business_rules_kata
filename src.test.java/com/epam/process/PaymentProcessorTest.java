@@ -30,10 +30,11 @@ public class PaymentProcessorTest {
 	// paymentForMembershipUpgradeOwnerInformed
 	// paymentForVideoLearnSkiFirstAidAdded
 
-	PaymentProcessor paymentProcessor;
-	Membership membership;
+	private PaymentProcessor paymentProcessor;
+	private Membership membership;
 	private List<PackingSlip> packingSlips = new ArrayList<>();
 	private List<CommissionPayment> commissionPayments = new ArrayList<>();
+	private Payment payment;
 
 	@Given("Physical Product Processor is given")
     @Aliases(values={"a new Processor is given"})
@@ -43,7 +44,7 @@ public class PaymentProcessorTest {
 	
 	@When("I process payment for physical product")
     public void processPaymentForPhysicalProduct() {
-		Payment payment = new Payment("table");
+		payment = new Payment("table");
 		paymentProcessor.processPayment(payment);
     }
      
@@ -71,7 +72,7 @@ public class PaymentProcessorTest {
     
     @When("I process payment for membership")
     public void processPaymentForMembership() {
-		Payment payment = new Payment("membership");
+		payment = new Payment("membership");
 		paymentProcessor.processPayment(payment);
     }
      
